@@ -63,17 +63,41 @@
 			isa = PBXGroup;
 			children = (
 				84366AEB21624972005980DF /* AppDelegate.swift */,
-				84366AED21624972005980DF /* ViewController.swift */,
-				84366B05216284F6005980DF /* TableViewCell.swift */,
-				84366B06216284F6005980DF /* TableViewCell.xib */,
-				84DCFB132163494F008F9BEB /* DetailsData.xcdatamodeld */,
-				84366AFD21624B92005980DF /* RegistrationViewController.swift */,
-				84366AEF21624972005980DF /* Main.storyboard */,
+				84DCFB1821635EEB008F9BEB /* Controller */,
+				84DCFB1721635EC5008F9BEB /* View */,
+				84DCFB1621635EAF008F9BEB /* Data Model */,
 				84366AF221624978005980DF /* Assets.xcassets */,
 				84366AF421624978005980DF /* LaunchScreen.storyboard */,
-				84366AF721624978005980DF /* Info.plist */,
 			);
 			path = "Registration Form with Core Data";
+			sourceTree = "<group>";
+		};
+		84DCFB1621635EAF008F9BEB /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				84DCFB132163494F008F9BEB /* DetailsData.xcdatamodeld */,
+				84366AF721624978005980DF /* Info.plist */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		84DCFB1721635EC5008F9BEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84366AEF21624972005980DF /* Main.storyboard */,
+				84366B06216284F6005980DF /* TableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84DCFB1821635EEB008F9BEB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84366AED21624972005980DF /* ViewController.swift */,
+				84366B05216284F6005980DF /* TableViewCell.swift */,
+				84366AFD21624B92005980DF /* RegistrationViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
