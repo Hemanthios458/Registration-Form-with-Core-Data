@@ -9,9 +9,10 @@
 import UIKit
 
 protocol dataParsingDelegate {
-    func dataPasingToVC(data : Details)
+    func dataPasingToVC(data : NSDictionary)
 }
 class RegistrationViewController: UIViewController {
+    
     @IBOutlet weak var first: UITextField!
     @IBOutlet weak var second: UITextField!
     @IBOutlet weak var email: UITextField!
@@ -20,11 +21,15 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var state: UITextField!
     @IBOutlet weak var pincode: UITextField!
     
-    let register = Details ()
+    var array = [String : String] ()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var delegate : dataParsingDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
     }
     
     func clearTextfieldData() {
@@ -38,6 +43,7 @@ class RegistrationViewController: UIViewController {
     }
     
     func savingTextfieldData() {
+        let register = Details (context: context)
         register.firstName = first.text!
         register.lastName = second.text!
         register.email = email.text!
@@ -45,11 +51,21 @@ class RegistrationViewController: UIViewController {
         register.city = city.text!
         register.state = state.text!
         register.pincode = pincode.text!
+        array = ["firstName" : register.firstName,"lastName": register.lastName,"email":register.email,"password":register.password,"city":register.city,"state":register.state,"pincode":register.pincode] as! [String : String]
+        
+        save()
+    }
+    func save() {
+        do {
+            try context.save()
+        } catch  {
+            print("Error saving context\(error)")
+        }
     }
     
     @IBAction func sendAction(_ sender: UIButton) {
         savingTextfieldData()
-        delegate?.dataPasingToVC(data: register)
+        delegate?.dataPasingToVC(data: array as NSDictionary)
         clearTextfieldData()
     }
     
